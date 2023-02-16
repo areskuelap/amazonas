@@ -1,24 +1,46 @@
 import React from 'react';
-import Carousel from './components/Carousel';
-import Destinations from './components/Destinations';
-import Footer from './components/Footer';
-import Hero from './components/Hero';
-import Navbar from './components/Navbar';
-import Search from './components/Search';
-import Selects from './components/Selects';
+import {Routes, Route} from 'react-router-dom';
+import Home from './components/home/Home';
+import './index.css';
+import Luya from './components/subpages/destinations/Luya';
+import Navbar from "./components/home/Navbar";
+import First from "./components/subpages/plan/First";
+import Adventure from "./components/subpages/todo/Adventure";
+import Shopping from "./components/subpages/articles/Shopping";
+import Faq from "./components/subpages/plan/Faq";
+import Getting from "./components/subpages/plan/Getting";
+import Transportation from './components/subpages/plan/Transportation';
+import Visa from "./components/travelbasics/Visa";
+import Contact from "./components/Contact";
+import Map from "./components/map/Map"
+import {useEffect} from "react";
+import Newsmain from "./components/news/Newsmain";
+import Newsa from "./components/news/Newsa";
+
 
 function App() {
+  useEffect(() => {
+    document.title = "Marca Amazonas"
+  }, []);  
   return (
-    <div>
-      <Navbar />
-      <Hero />
-      <Destinations />
-      <Search />
-      <Selects />
-      <Carousel />
-      <Footer />
-    </div>
+      <div>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path='/luya' element={<Luya/>} />
+        <Route path='/first' element={<First/>} />
+        <Route path='/shopping' element={<Shopping/>} />
+        <Route path='/adventure' element={<Adventure/>} />
+        <Route path='/faq' element={<Faq/>} />
+        <Route path='/getting' element={<Getting/>} />
+        <Route path='/transportation' element={<Transportation/>} />
+        <Route path='/visa' element={<Visa/>} />
+        <Route path='/contact' element={<Contact/>} />
+        <Route path='/map' element={<Map/>} />
+        <Route path='/newsmain' element={<Newsmain/>} />
+        <Route path='/newsa' element={<Newsa/>} />
+      </Routes>
+      </div>
   );
 }
-
 export default App;
